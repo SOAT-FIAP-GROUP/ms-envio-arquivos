@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: ms-envio-arquivos
+  cloud:
+    aws:
+      sqs:
+        listener:
+          auto-create-queues: false
+      region:
+        static: us-east-1
+      credentials:
+        access-key: ${AWS_ACCESS_KEY_ID}
+        secret-key: ${AWS_SECRET_ACCESS_KEY}
+      bucket:
+        name: ${AWS_BUCKET_NAME}
+    config:
+      enabled: false
+
+logging:
+  level:
+    io:
+      awspring:
+        cloud: DEBUG
+    software:
+      amazon:
+        awssdk: DEBUG
